@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pasquarelli Auto · Concessionaria multibrand dal 1986 (demo)</title>
+<meta name="description" content="Proposta di restyling del sito di Pasquarelli Auto. Demo non ufficiale realizzata da CarlHost.">
+<meta name="theme-color" content="#0B0C0E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0C0E; --bg-2:#111316; --bg-3:#181B1F; --card:#14171A;
+  --fg:#F4F5F6; --fg-2:rgb(244 245 246/.68); --fg-3:rgb(244 245 246/.44);
+  --line:rgb(244 245 246/.09); --line-2:rgb(244 245 246/.16);
+  --red:#D7262D; --red-2:#B51D23;
+  --light:#F3F3F1; --ink:#0B0C0E; --ink-2:rgb(11 12 14/.66);
+  --ease:cubic-bezier(.2,0,0,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;background:var(--bg)}
+body{font:400 16.5px/1.65 Inter,system-ui,sans-serif;color:var(--fg-2);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:1300px;margin:0 auto;padding:0 20px}
+.x{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;color:var(--fg);line-height:.95}
+.h2{font-size:clamp(34px,4.6vw,68px)}
+.h2 .r{color:var(--red)}
+.h2 .d{color:var(--fg-3)}
+.kick{display:inline-flex;align-items:center;gap:12px;font:600 12px Inter;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-3);margin-bottom:20px}
+.kick::before{content:"";width:28px;height:2px;background:var(--red)}
+.sub{font-size:clamp(16.5px,1.4vw,18.5px)}
+
+.demo-bar{position:relative;z-index:60;background:#000;color:rgb(244 245 246/.6);font-size:13px;text-align:center;padding:9px 16px;line-height:1.4}
+.demo-bar b{color:#fff;font-weight:600}.demo-bar a{color:#ff6b70;font-weight:600}
+@media (max-width:600px){.demo-bar{font-size:12px;padding:7px 12px}.demo-bar .xx{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;border-radius:4px;font:600 14px/1 Inter,sans-serif;letter-spacing:.04em;white-space:nowrap;transition:background-color .16s var(--ease),color .16s,box-shadow .16s;border:0;cursor:pointer}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 14px 30px -14px rgb(215 38 45/.8)}
+.btn-red:hover{background:var(--red-2)}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{background:#e7e8ea}
+.btn-line{box-shadow:inset 0 0 0 1px var(--line-2);color:var(--fg)}
+.btn-line:hover{background:rgb(244 245 246/.06);box-shadow:inset 0 0 0 1px rgb(244 245 246/.4)}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* nav */
+.nav{position:fixed;top:44px;left:0;right:0;z-index:50;transition:top .3s var(--ease),background-color .3s,box-shadow .3s}
+.nav .in{max-width:1360px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .mk{width:36px;height:36px;border-radius:4px;background:var(--red);display:grid;place-items:center;font:800 15px Archivo;font-stretch:125%;color:#fff}
+.logo b{font:700 17px Archivo;font-stretch:115%;color:#fff;letter-spacing:.01em;line-height:1}
+.logo small{display:block;font:500 10px Inter;letter-spacing:.22em;color:var(--fg-3);margin-top:3px}
+.nav-links{display:flex;gap:2px}
+.nav-links a{padding:9px 13px;font:500 13.5px Inter;color:var(--fg-2);transition:color .16s}
+.nav-links a:hover{color:#fff}
+.nav .btn{padding:12px 18px;font-size:13px}
+.nav.stuck{top:0;background:rgb(11 12 14/.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+@media (max-width:1020px){.nav-links,.nav .btn-line{display:none}}
+@media (max-width:600px){.nav{top:40px}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 0 40px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url(img/strada.jpg) center 60%/cover;transform-origin:50% 60%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(11 12 14/.75),rgb(11 12 14/.1) 30%,rgb(11 12 14/.35) 60%,var(--bg) 96%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.since{display:flex;align-items:center;gap:14px;margin-bottom:22px;color:var(--fg-2);font:600 12px Inter;letter-spacing:.22em;text-transform:uppercase}
+.since b{color:#fff;padding:6px 10px;border-radius:3px;background:var(--red);letter-spacing:.12em}
+.hero h1{font-size:clamp(44px,7.6vw,118px);max-width:1150px}
+.hero h1 .r{color:var(--red)}
+.hero p.sub{max-width:520px;margin:22px 0 0;color:var(--fg-2)}
+
+/* search widget */
+.finder{margin-top:38px;display:grid;grid-template-columns:auto 1fr 1fr 1fr auto;gap:1px;background:var(--line-2);border-radius:6px;overflow:hidden;box-shadow:0 40px 80px -30px rgb(0 0 0/.9)}
+.finder > *{background:rgb(17 19 22/.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.tabs{display:flex;padding:8px;gap:4px;align-items:center}
+.tabs button{font:600 13px Inter;color:var(--fg-2);background:none;border:0;padding:12px 14px;border-radius:4px;cursor:pointer;transition:background-color .16s,color .16s}
+.tabs button.on{background:#fff;color:var(--ink)}
+.finder label{display:flex;flex-direction:column;justify-content:center;padding:12px 18px;gap:4px}
+.finder label span{font:600 10.5px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-3)}
+.finder select{appearance:none;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F4F5F6' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") right center no-repeat;border:0;color:#fff;font:600 16px Inter;padding-right:20px;cursor:pointer}
+.finder select option{color:#000}
+.finder .go{border-radius:0;padding:0 30px;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;border-top:1px solid var(--line)}
+.stats div{padding:22px 4px 0}
+.stats b{display:block;font:700 clamp(28px,3vw,42px)/1 Archivo;font-stretch:125%;color:#fff}
+.stats b em{font-style:normal;color:var(--red)}
+.stats span{font-size:13.5px;color:var(--fg-3)}
+@media (max-width:980px){.finder{grid-template-columns:1fr 1fr}.tabs{grid-column:span 2;justify-content:center}.finder .go{grid-column:span 2;padding:18px}.stats{grid-template-columns:1fr 1fr;gap:0 16px}}
+@media (max-width:520px){.finder{grid-template-columns:1fr}.tabs,.finder .go{grid-column:auto}.tabs button{flex:1}}
+
+/* brands marquee */
+.brands{padding:44px 0;border-block:1px solid var(--line);overflow:hidden;mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.brands-track{display:flex;gap:70px;width:max-content;animation:mq 45s linear infinite;align-items:center}
+.brands:hover .brands-track{animation-play-state:paused}
+.brands-track img{height:34px;width:auto;filter:invert(1);opacity:.5;transition:opacity .3s}
+.brands-track img:hover{opacity:1}
+.brands-track span{font:700 22px Archivo;font-stretch:125%;color:var(--fg-3);text-transform:uppercase;white-space:nowrap}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.pad{padding:clamp(90px,11vw,160px) 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+.head p{max-width:420px}
+
+/* promo rail */
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(20px,calc((100vw - 1300px)/2 + 20px)) 20px;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.promo{flex:0 0 min(620px,86vw);scroll-snap-align:start;border-radius:8px;overflow:hidden;box-shadow:0 0 0 1px var(--line);background:var(--card);transition:box-shadow .3s}
+.promo:hover{box-shadow:0 0 0 1px var(--red)}
+.promo img{width:100%;aspect-ratio:1200/412;object-fit:cover}
+.promo .t{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;color:#fff;font-weight:600}
+.promo .t span{font-size:13px;color:var(--fg-3);font-weight:500}
+.rail-nav{display:flex;gap:8px}
+.rail-nav button{width:46px;height:46px;border-radius:4px;border:0;background:var(--bg-3);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background-color .16s}
+.rail-nav button:hover{background:var(--red)}
+.rail-nav svg{width:18px;height:18px}
+
+/* services bento */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.svc{position:relative;overflow:hidden;border-radius:8px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);padding:30px;display:flex;flex-direction:column;gap:12px;min-height:250px;isolation:isolate;transition:box-shadow .3s}
+.svc:hover{box-shadow:inset 0 0 0 1px var(--line-2)}
+.svc .n{font:600 12px Inter;letter-spacing:.2em;color:var(--red)}
+.svc h3{font:700 clamp(22px,2vw,28px)/1 Archivo;font-stretch:125%;text-transform:uppercase;color:#fff}
+.svc p{font-size:15.5px}
+.svc .more{margin-top:auto;font:600 13px Inter;letter-spacing:.06em;color:#fff;display:inline-flex;align-items:center;gap:8px}
+.svc .more svg{width:16px;height:16px;transition:translate .2s}
+.svc.photo{color:var(--fg-2)}
+.svc.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:scale 1s var(--ease)}
+.svc.photo:hover img{scale:1.05}
+.svc.photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(11 12 14/.1),rgb(11 12 14/.88))}
+.svc.photo{justify-content:flex-end}
+.s7{grid-column:span 7;grid-row:span 2;min-height:520px}.s5{grid-column:span 5}.s4{grid-column:span 4}.s8{grid-column:span 8}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips span{font:600 12px Inter;padding:6px 10px;border-radius:3px;background:rgb(244 245 246/.08);color:#fff}
+.mini-row{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+.mini-row b{color:#fff;font-weight:600}
+@media (max-width:900px){.bento{grid-template-columns:1fr}.s7,.s5,.s4,.s8{grid-column:auto;grid-row:auto}.s7{min-height:420px}}
+
+/* story (light) */
+.light{background:var(--light);color:var(--ink-2)}
+.light .x{color:var(--ink)}
+.light .kick{color:rgb(11 12 14/.5)}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
+.year{font:800 clamp(120px,18vw,260px)/.8 Archivo;font-stretch:125%;letter-spacing:-.04em;color:var(--ink)}
+.year em{font-style:normal;color:var(--red)}
+.story blockquote{font:500 clamp(22px,2.1vw,28px)/1.35 Inter;color:var(--ink);margin:24px 0;padding-left:20px;border-left:3px solid var(--red)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;border-top:1px solid rgb(11 12 14/.12)}
+.timeline div{padding:22px 16px 0 0}
+.timeline b{display:block;font:700 22px Archivo;font-stretch:125%;color:var(--ink)}
+.timeline span{font-size:14.5px}
+@media (max-width:900px){.story{grid-template-columns:1fr}.timeline{grid-template-columns:1fr 1fr;gap:20px 16px}}
+
+/* IR band */
+.ir{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding:clamp(36px,5vw,60px);border-radius:8px;background:radial-gradient(60% 120% at 100% 0%,rgb(215 38 45/.22),transparent 60%),var(--bg-2);box-shadow:inset 0 0 0 1px var(--line)}
+.ir .big{font:800 clamp(56px,7vw,104px)/.9 Archivo;font-stretch:125%;color:#fff}
+.ir .big small{font-size:.32em;color:var(--fg-3);font-weight:600}
+.ir ul{list-style:none;display:grid;gap:10px;margin-top:20px}
+.ir li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.ir li b{color:#fff;font-weight:600}
+@media (max-width:900px){.ir{grid-template-columns:1fr}}
+
+/* regions */
+.regions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.region{padding:28px;border-radius:8px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:10px}
+.region h3{font:700 32px Archivo;font-stretch:125%;text-transform:uppercase;color:#fff}
+.region .dot{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 0 6px rgb(215 38 45/.18)}
+@media (max-width:800px){.regions{grid-template-columns:1fr}}
+
+/* whatsapp */
+.wa-sec{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.phone{width:300px;margin:0 auto;border-radius:44px;padding:10px;background:#050607;box-shadow:inset 0 0 0 1.5px rgb(255 255 255/.08),0 50px 90px -30px rgb(0 0 0/.9)}
+.screen{border-radius:35px;overflow:hidden;background:#EFE7DE;position:relative}
+.island{position:absolute;top:9px;left:50%;translate:-50% 0;width:88px;height:25px;border-radius:99px;background:#000;z-index:2}
+.wa-head{display:flex;align-items:center;gap:10px;padding:44px 14px 12px;background:#075E54;color:#fff}
+.wa-head .av{width:36px;height:36px;border-radius:50%;background:var(--red);display:grid;place-items:center;font:800 13px Archivo;font-stretch:125%}
+.wa-head b{display:block;font-size:15px;font-weight:600}.wa-head small{font-size:12px;opacity:.8}
+.chat{padding:14px 10px 18px;display:flex;flex-direction:column;gap:7px;min-height:370px}
+.msg{max-width:86%;padding:7px 10px 5px;border-radius:10px;font:400 14px/1.38 Inter;color:#111;box-shadow:0 1px .5px rgb(0 0 0/.12);opacity:0;translate:0 10px;transition:opacity .45s var(--ease),translate .45s var(--ease)}
+.msg.show{opacity:1;translate:0 0}
+.msg small{display:block;text-align:right;font-size:10.5px;color:#667781;margin-top:1px}
+.me{align-self:flex-end;background:#D9FDD3;border-top-right-radius:3px}
+.them{align-self:flex-start;background:#fff;border-top-left-radius:3px}
+@media (max-width:900px){.wa-sec{grid-template-columns:1fr}}
+
+/* final */
+.final{position:relative;padding:clamp(110px,14vw,200px) 20px;text-align:center;overflow:hidden}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.final::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 50% 50%,rgb(11 12 14/.3),var(--bg) 90%)}
+.final>*:not(img){position:relative;z-index:1}
+.final h2{font-size:clamp(44px,7vw,110px)}
+.final p{max-width:520px;margin:20px auto 34px}
+.final .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+footer{border-top:1px solid var(--line);padding:56px 0 34px;font-size:14px;color:var(--fg-3)}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px}
+.foot h4{font:600 11.5px Inter;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.foot a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:13px}
+.legal a{color:#ff6b70}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(#22B86A,#159452);box-shadow:inset 0 1px 0 rgb(255 255 255/.3),0 14px 30px -8px rgb(29 170 97/.6);opacity:0;pointer-events:none;transition:opacity .3s,filter .16s}
+.fab.on{opacity:1;pointer-events:auto}.fab:hover{filter:brightness(1.08)}
+.fab svg{width:28px;height:28px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.msg{opacity:1;translate:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m6 6-6-6 6-6"/></symbol>
+</svg>
+
+<div class="demo-bar"><b>Demo di restyling</b> · proposta non ufficiale per Pasquarelli Auto, realizzata da <a href="https://carlhost.com">CarlHost</a><span class="xx">. Testi e immagini presi dal sito attuale</span>.</div>
+
+<header class="nav" id="nav"><div class="in">
+  <a class="logo" href="#top"><span class="mk">PA</span><span><b>Pasquarelli Auto</b><small>DAL 1986</small></span></a>
+  <nav class="nav-links"><a href="#promo">Promozioni</a><a href="#servizi">Servizi</a><a href="#storia">Chi siamo</a><a href="#investor">Investor</a><a href="#sedi">Sedi</a></nav>
+  <div style="display:flex;gap:8px"><a class="btn btn-line" href="tel:+390854469701">085 4469701</a><a class="btn btn-red wa-link" href="#"><svg><use href="#i-wa"/></svg>WhatsApp</a></div>
+</div></header>
+
+<main id="top">
+<section class="hero">
+  <div class="bg" id="herobg"></div>
+  <div class="wrap">
+    <p class="since" data-fade><b>Dal 1986</b>Abruzzo · Lazio · Molise</p>
+    <h1 class="x"><span class="l">L'auto dei tuoi sogni,</span> <span class="l"><span class="r">in totale</span> serenità.</span></h1>
+    <p class="sub" data-fade>Concessionaria ufficiale multibrand per vendita e assistenza: auto nuove, pronta consegna, usato e km0, noleggio e soluzioni per le aziende.</p>
+    <form class="finder" id="finder" data-fade>
+      <div class="tabs" role="tablist"><button type="button" class="on" data-v="Nuovo">Nuovo</button><button type="button" data-v="Usato">Usato</button><button type="button" data-v="Km0">Km0</button></div>
+      <label><span>Marca</span><select id="f-brand"><option>Tutte le marche</option><option>Audi</option><option>Volkswagen</option><option>Seat</option><option>Cupra</option><option>Kia</option><option>Peugeot</option><option>Citroën</option><option>Opel</option><option>Alfa Romeo</option><option>DS</option><option>Toyota</option><option>Lexus</option><option>Nissan</option><option>Mitsubishi</option><option>Fiat</option><option>Lancia</option><option>Abarth</option><option>BYD</option><option>Dongfeng</option><option>Changan</option></select></label>
+      <label><span>Alimentazione</span><select id="f-fuel"><option>Qualsiasi</option><option>Ibrida</option><option>Elettrica</option><option>Benzina</option><option>Diesel</option><option>GPL</option></select></label>
+      <label><span>Budget</span><select id="f-budget"><option>Qualsiasi</option><option>fino a 15.000 €</option><option>fino a 20.000 €</option><option>fino a 30.000 €</option><option>fino a 45.000 €</option><option>oltre 45.000 €</option></select></label>
+      <button class="btn btn-red go" type="submit">Trova la tua auto <svg><use href="#i-arrow"/></svg></button>
+    </form>
+    <div class="stats" data-fade>
+      <div><b>1986</b><span>l'anno di fondazione</span></div>
+      <div><b>20<em>+</em></b><span>marchi ufficiali</span></div>
+      <div><b>3</b><span>regioni: Abruzzo, Lazio, Molise</span></div>
+      <div><b>506<em>,6</em></b><span>mln € valore della produzione 2025</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="brands" aria-label="Marchi"><div class="brands-track" id="brands">
+  <img src="img/logo-audi.svg" alt="Audi" width="34" height="34"><img src="img/logo-volkswagen.svg" alt="Volkswagen" width="34" height="34"><img src="img/logo-seat.svg" alt="Seat" width="34" height="34"><span>Cupra</span><img src="img/logo-kia.svg" alt="Kia" width="34" height="34"><img src="img/logo-peugeot.svg" alt="Peugeot" width="34" height="34"><img src="img/logo-citroen.svg" alt="Citroën" width="34" height="34"><img src="img/logo-opel.svg" alt="Opel" width="34" height="34"><img src="img/logo-alfaromeo.svg" alt="Alfa Romeo" width="34" height="34"><span>DS</span><img src="img/logo-toyota.svg" alt="Toyota" width="34" height="34"><span>Lexus</span><img src="img/logo-nissan.svg" alt="Nissan" width="34" height="34"><img src="img/logo-mitsubishi.svg" alt="Mitsubishi" width="34" height="34"><img src="img/logo-fiat.svg" alt="Fiat" width="34" height="34"><span>Lancia</span><span>Abarth</span><span>BYD</span><span>Dongfeng</span><span>Changan</span>
+</div></div>
+
+<section class="pad" id="promo">
+  <div class="wrap head">
+    <div data-reveal><p class="kick">Promozioni del mese</p><h2 class="x h2">Le offerte <span class="r">di novembre.</span></h2></div>
+    <div class="rail-nav" data-reveal><button type="button" id="prev" aria-label="Precedente"><svg><use href="#i-left"/></svg></button><button type="button" id="next" aria-label="Successiva"><svg><use href="#i-arrow"/></svg></button></div>
+  </div>
+  <div class="rail" id="rail">
+    <a class="promo wa-link" href="#"><img src="img/p-arona.jpg" alt="Promozione Seat Arona" loading="lazy"><div class="t">Seat Arona <span>Richiedi info →</span></div></a>
+    <a class="promo wa-link" href="#"><img src="img/p-polo.jpg" alt="Promozione Volkswagen Polo" loading="lazy"><div class="t">Volkswagen Polo <span>Richiedi info →</span></div></a>
+    <a class="promo wa-link" href="#"><img src="img/p-formentor.jpg" alt="Promozione Cupra Formentor" loading="lazy"><div class="t">Cupra Formentor <span>Richiedi info →</span></div></a>
+    <a class="promo wa-link" href="#"><img src="img/p-208.jpg" alt="Promozione Peugeot 208" loading="lazy"><div class="t">Nuova Peugeot 208 <span>Richiedi info →</span></div></a>
+    <a class="promo wa-link" href="#"><img src="img/p-panda.jpg" alt="Promozione Fiat Grande Panda" loading="lazy"><div class="t">Fiat Grande Panda <span>Richiedi info →</span></div></a>
+    <a class="promo wa-link" href="#"><img src="img/p-ypsilon.jpg" alt="Promozione Lancia Ypsilon" loading="lazy"><div class="t">Lancia Ypsilon <span>Richiedi info →</span></div></a>
+    <a class="promo wa-link" href="#"><img src="img/p-abarth.jpg" alt="Promozione Abarth 600e" loading="lazy"><div class="t">Abarth 600e <span>Richiedi info →</span></div></a>
+  </div>
+</section>
+
+<section class="pad" id="servizi" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" data-reveal><div><p class="kick">Mobilità a 360°</p><h2 class="x h2">Non solo vendita. <span class="d">Tutto ciò che serve alla tua auto.</span></h2></div></div>
+    <div class="bento" data-reveal>
+      <article class="svc photo s7"><img src="img/usato.jpg" alt="Il centro usato SecondLife" loading="lazy"><span class="n">SECONDLIFE</span><h3>Usato e Km0 garantito</h3><p>Auto usate, aziendali e km0 dal nostro centro usato SecondLife, selezionate e controllate.</p><div class="chips"><span>Usato</span><span>Km0</span><span>Aziendali</span></div><a class="more wa-link" href="#">Scopri le disponibilità <svg><use href="#i-arrow"/></svg></a></article>
+      <article class="svc s5"><span class="n">01</span><h3>Nuovo e pronta consegna</h3><p>Configura la tua nuova auto tra i nostri brand ufficiali, o scegline una già disponibile.</p><div class="mini-row"><span>Brand ufficiali</span><b>20+</b></div><a class="more wa-link" href="#">Configura <svg><use href="#i-arrow"/></svg></a></article>
+      <article class="svc s5"><span class="n">02</span><h3>Business e noleggio</h3><p>Pasquarelli Auto Business: soluzioni di acquisto e noleggio per aziende e professionisti.</p><a class="more wa-link" href="#">Parla con un consulente <svg><use href="#i-arrow"/></svg></a></article>
+      <article class="svc s4"><span class="n">03</span><h3>Assistenza</h3><p>Service ufficiale: tagliandi, manutenzione e riparazioni nelle nostre officine.</p><a class="more wa-link" href="#">Prenota il service <svg><use href="#i-arrow"/></svg></a></article>
+      <article class="svc s4"><span class="n">04</span><h3>Servizi</h3><p>Finanziamenti, permuta e tutti i servizi correlati alla mobilità, in un unico posto.</p><a class="more wa-link" href="#">Richiedi info <svg><use href="#i-arrow"/></svg></a></article>
+      <article class="svc s4"><span class="n">05</span><h3>Academy e Careers</h3><p>Formazione e opportunità di lavoro nel gruppo: cresci con noi.</p><a class="more" href="https://www.pasquarelliauto.it/careers/" target="_blank" rel="noopener">Lavora con noi <svg><use href="#i-arrow"/></svg></a></article>
+    </div>
+  </div>
+</section>
+
+<section class="light pad" id="storia">
+  <div class="wrap">
+    <div class="story">
+      <div data-reveal><p class="kick">La nostra storia</p><p class="year">19<em>86</em></p></div>
+      <div data-reveal>
+        <h2 class="x h2" style="font-size:clamp(30px,3.4vw,48px)">Una passione di famiglia.</h2>
+        <blockquote>Fornire un'auto di cui essere fieri e garantire un servizio eccellente è la nostra mission.</blockquote>
+        <p class="sub">Pasquarelli Auto nasce dalla passione per le automobili della famiglia e del fondatore, Giancarlo. Dal 1986 le nostre concessionarie si occupano di vendita, assistenza e di tutti i servizi legati alla mobilità: la migliore esperienza di acquisto e di possesso.</p>
+      </div>
+    </div>
+    <div class="timeline" data-reveal>
+      <div><b>1986</b><span>Giancarlo fonda l'azienda</span></div>
+      <div><b>Multibrand</b><span>Concessionari di oltre 20 marchi</span></div>
+      <div><b>SecondLife</b><span>Il centro dedicato all'usato</span></div>
+      <div><b>In Borsa</b><span>Una società quotata in Borsa</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="investor">
+  <div class="wrap ir" data-reveal>
+    <div>
+      <p class="kick">Investor Relations</p>
+      <p class="big">506,6 <small>mln €</small></p>
+      <p class="sub" style="margin-top:14px">Valore della produzione consolidato 2025. Pasquarelli Auto è una società quotata: bilanci, comunicati e governance sempre consultabili.</p>
+    </div>
+    <ul>
+      <li><span>Comunicati stampa finanziari</span><b>→</b></li>
+      <li><span>Highlights e bilanci</span><b>→</b></li>
+      <li><span>IPO, warrant e azionariato</span><b>→</b></li>
+      <li style="border:0"><a class="btn btn-white" href="https://www.pasquarelliauto.it/investor-relations/" target="_blank" rel="noopener">Area Investor <svg><use href="#i-arrow"/></svg></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="pad" id="sedi" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" data-reveal><div><p class="kick">Le nostre sedi</p><h2 class="x h2">Vicini a te, <span class="r">in tre regioni.</span></h2></div><p>Showroom e officine ufficiali per vendita e assistenza. Trova la sede più vicina e scrivici.</p></div>
+    <div class="regions" data-reveal>
+      <div class="region"><span class="dot"></span><h3>Abruzzo</h3><p>Il cuore del gruppo, con showroom e officine ufficiali.</p></div>
+      <div class="region"><span class="dot"></span><h3>Lazio</h3><p>Concessionarie ufficiali per vendita e service.</p></div>
+      <div class="region"><span class="dot"></span><h3>Molise</h3><p>Vendita, usato e assistenza vicino a casa tua.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="padding-top:0">
+  <div class="wrap wa-sec">
+    <div data-reveal>
+      <p class="kick">Parla con noi</p>
+      <h2 class="x h2">Test drive? <span class="r">Basta un messaggio.</span></h2>
+      <p class="sub" style="margin:20px 0 30px">Preventivi, test drive, permute e appuntamenti in officina: scrivici su WhatsApp, ti risponde un consulente della sede più vicina.</p>
+      <a class="btn btn-red wa-link" href="#"><svg><use href="#i-wa"/></svg>Scrivici su WhatsApp</a>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="island"></div>
+        <div class="wa-head"><span class="av">PA</span><div><b>Pasquarelli Auto</b><small>Account aziendale</small></div></div>
+        <div class="chat" id="chat">
+          <div class="msg me">Buongiorno! Vorrei provare la nuova Kia Seltos ibrida questo sabato 🚗<small>10:14</small></div>
+          <div class="msg them">Buongiorno! Sabato abbiamo disponibilità alle 10:00 o alle 15:30. Quale preferisce?<small>10:16</small></div>
+          <div class="msg me">Le 10:00, grazie. Valutate anche la permuta?<small>10:17</small></div>
+          <div class="msg them">Certo! Porti la sua auto: la valutiamo durante il test drive ✅<small>10:18</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <img src="img/strada.jpg" alt="" loading="lazy">
+  <p class="kick" style="justify-content:center">Pasquarelli Auto</p>
+  <h2 class="x" data-reveal>La tua prossima auto <span style="color:var(--red)">ti aspetta.</span></h2>
+  <p class="sub">Nuova, usata o a noleggio: trovala con noi, in totale serenità.</p>
+  <div class="cta"><a class="btn btn-red" href="#finder">Trova la tua auto</a><a class="btn btn-line wa-link" href="#"><svg><use href="#i-wa"/></svg>WhatsApp</a></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="logo" href="#top" style="margin-bottom:14px"><span class="mk">PA</span><span><b>Pasquarelli Auto</b><small>DAL 1986</small></span></a><p style="margin-top:14px">Concessionaria ufficiale multibrand in Abruzzo, Lazio e Molise.</p></div>
+      <div><h4>Auto</h4><p>Nuovo<br>Pronta consegna<br>Usato e Km0<br>Noleggio</p></div>
+      <div><h4>Azienda</h4><p><a href="https://www.pasquarelliauto.it/investor-relations/" target="_blank" rel="noopener">Investor Relations</a><br>Governance<br>Academy<br>Careers</p></div>
+      <div><h4>Contatti</h4><p><a href="tel:+390854469701">085 4469701</a><br><a href="mailto:info@pasquarelliauto.it">info@pasquarelliauto.it</a><br><a class="wa-link" href="#">WhatsApp</a></p></div>
+    </div>
+    <div class="legal"><span>Pasquarelli Auto · P.IVA 01425470695</span><span>Demo di restyling non ufficiale, realizzata da <a href="https://carlhost.com">CarlHost</a></span></div>
+  </div>
+</footer>
+
+<a class="fab wa-link" id="fab" href="#" aria-label="Scrivi su WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script>
+const WA = "3908544697000";
+const waUrl = t => "https://wa.me/" + WA + "?text=" + encodeURIComponent(t);
+document.querySelectorAll(".wa-link").forEach(a => { const p = a.closest(".promo"); a.href = waUrl(p ? "Buongiorno, vorrei informazioni sulla promozione " + p.querySelector(".t").firstChild.textContent.trim() + "." : "Buongiorno, vorrei informazioni da Pasquarelli Auto."); a.target = "_blank"; a.rel = "noopener"; });
+const br = document.getElementById("brands"); br.innerHTML += br.innerHTML.replace(/alt="[^"]*"/g, 'alt=""');
+const nav = document.getElementById("nav"), fab = document.getElementById("fab");
+const onScroll = () => { nav.classList.toggle("stuck", scrollY > 40); fab.classList.toggle("on", scrollY > innerHeight * .8); };
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+// Finder: tabs + send to WhatsApp
+let kind = "Nuovo";
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => { document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b)); kind = b.dataset.v; }));
+document.getElementById("finder").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value;
+  window.open(waUrl(`Buongiorno, cerco un'auto.\nTipo: ${kind}\nMarca: ${v("f-brand")}\nAlimentazione: ${v("f-fuel")}\nBudget: ${v("f-budget")}`), "_blank", "noopener");
+});
+// Promo rail arrows
+const rail = document.getElementById("rail");
+document.getElementById("next").onclick = () => rail.scrollBy({ left: rail.clientWidth * .7, behavior: "smooth" });
+document.getElementById("prev").onclick = () => rail.scrollBy({ left: -rail.clientWidth * .7, behavior: "smooth" });
+
+const msgs = [...document.querySelectorAll("#chat .msg")];
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (reduce) msgs.forEach(m => m.classList.add("show"));
+else new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { msgs.forEach((m, i) => setTimeout(() => m.classList.add("show"), 300 + i * 1000)); io.disconnect(); } }, { threshold: .3 }).observe(document.getElementById("chat"));
+
+if (window.gsap) {
+  gsap.registerPlugin(ScrollTrigger);
+  document.fonts.ready.then(() => {
+    gsap.matchMedia().add({ motion: "(prefers-reduced-motion: no-preference)", desktop: "(min-width:769px)" }, ctx => {
+      const { motion, desktop } = ctx.conditions;
+      if (!motion) return;
+      if (desktop && window.Lenis) {
+        const lenis = new Lenis({ lerp: .1, smoothWheel: true });
+        lenis.on("scroll", ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const t = document.querySelector(a.getAttribute("href")); if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -80 }); } }));
+      }
+      gsap.from("#herobg", { scale: 1.15, duration: 2.6, ease: "power3.out" });
+      gsap.from(".hero h1 .l", { y: 70, opacity: 0, duration: 1.3, ease: "expo.out", stagger: .12, delay: .2 });
+      gsap.from(".hero [data-fade]", { y: 24, opacity: 0, duration: 1, ease: "power3.out", stagger: .1, delay: .5 });
+      gsap.to("#herobg", { yPercent: 12, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+      gsap.utils.toArray("[data-reveal]").forEach(g => gsap.from(g.children.length > 1 ? g.children : g, { y: 40, opacity: 0, duration: 1, ease: "power3.out", stagger: .07, scrollTrigger: { trigger: g, start: "top 86%" } }));
+      gsap.from(".year", { yPercent: 30, opacity: 0, duration: 1.4, ease: "expo.out", scrollTrigger: { trigger: ".year", start: "top 85%" } });
+      gsap.from(".promo", { x: 80, opacity: 0, duration: 1, ease: "power3.out", stagger: .08, scrollTrigger: { trigger: "#rail", start: "top 85%" } });
+    });
+  });
+}
+</script>
+</body>
+</html>
