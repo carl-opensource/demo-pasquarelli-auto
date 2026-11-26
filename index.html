@@ -129,8 +129,9 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(
 .svc.photo{color:var(--fg-2)}
 .svc.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:scale 1s var(--ease)}
 .svc.photo:hover img{scale:1.05}
-.svc.photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(11 12 14/.1),rgb(11 12 14/.88))}
+.svc.photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(11 12 14/0) 30%,rgb(11 12 14/.92) 85%)}
 .svc.photo{justify-content:flex-end}
+.svc.photo .more{margin-top:6px}
 .s7{grid-column:span 7;grid-row:span 2;min-height:520px}.s5{grid-column:span 5}.s4{grid-column:span 4}.s8{grid-column:span 8}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
 .chips span{font:600 12px Inter;padding:6px 10px;border-radius:3px;background:rgb(244 245 246/.08);color:#fff}
@@ -417,7 +418,7 @@ if (window.gsap) {
       gsap.from(".hero [data-fade]", { y: 24, opacity: 0, duration: 1, ease: "power3.out", stagger: .1, delay: .5 });
       gsap.to("#herobg", { yPercent: 12, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
       gsap.utils.toArray("[data-reveal]").forEach(g => gsap.from(g.children.length > 1 ? g.children : g, { y: 40, opacity: 0, duration: 1, ease: "power3.out", stagger: .07, scrollTrigger: { trigger: g, start: "top 86%" } }));
-      gsap.from(".year", { yPercent: 30, opacity: 0, duration: 1.4, ease: "expo.out", scrollTrigger: { trigger: ".year", start: "top 85%" } });
+      
       gsap.from(".promo", { x: 80, opacity: 0, duration: 1, ease: "power3.out", stagger: .08, scrollTrigger: { trigger: "#rail", start: "top 85%" } });
     });
   });
